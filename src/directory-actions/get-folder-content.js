@@ -18,7 +18,6 @@ export const getFolderContent = async () => {
         console.log('Directory is empty');
       }
 
-      showCurrentDirectory();
       resolve();
 
     } catch {
