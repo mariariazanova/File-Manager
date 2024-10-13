@@ -1,0 +1,19 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "File Manager implementation using Node.js APIs",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariariazanova/File-Manager.git"
+  },
+  "keywords": [],
+  "author": "mariariazanova",
+  "homepage": "https://github.com//mariariazanova/File-Manager#readme"
+}
