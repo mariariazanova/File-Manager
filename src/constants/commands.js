@@ -6,8 +6,17 @@ export const commands = {
   EXIT: '.exit',
   LS: 'ls',
   MV: 'mv',
+  OS: 'os',
   RM: 'rm',
   RN: 'rn',
   SIGINT: 'SIGINT',
   UP: 'up',
+};
+
+export const osCommands = {
+  EOL: 'EOL',
+  CPUS: 'cpus',
+  HOMEDIR: 'homedir',
+  USERNAME: 'username',
+  ARCHITECTURE: 'architecture',
 };

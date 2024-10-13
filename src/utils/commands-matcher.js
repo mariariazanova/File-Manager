@@ -11,6 +11,7 @@ import { renameFile } from '../file-actions/rename-file.js';
 import { copyFile } from '../file-actions/cp-copy-file.js';
 import { moveFile } from '../file-actions/mv-move-file.js';
 import { deleteFile } from '../file-actions/rm-delete-file.js';
+import { getOSInfo } from '../os-info-actions/os-get-os-info.js';
 
 export const commandsMatcher = async (input) => {
   const [command, ...args] = input.trim().split(' ');
@@ -25,6 +26,7 @@ export const commandsMatcher = async (input) => {
     [commands.CP]: () => copyFile(args[0], args[1]),
     [commands.MV]: () => moveFile(args[0], args[1]),
     [commands.RM]: () => deleteFile(args[0]),
+    [commands.OS]: () => getOSInfo(args[0]),
 
     [commands.EXIT]: () => exitFileManager(),
     [commands.SIGINT]: () => exitFileManager(),
