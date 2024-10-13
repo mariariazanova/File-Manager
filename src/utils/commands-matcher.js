@@ -13,6 +13,8 @@ import { moveFile } from '../file-actions/mv-move-file.js';
 import { deleteFile } from '../file-actions/rm-delete-file.js';
 import { getOSInfo } from '../os-info-actions/os-get-os-info.js';
 import { calculateFileHash } from '../hash-actions/hash-calculate-file-hash.js';
+import { compressFile } from '../compress-actions/compress-file.js';
+import { decompressFile } from '../compress-actions/decompress-file.js';
 
 export const commandsMatcher = async (input) => {
   const [command, ...args] = input.trim().split(' ');
@@ -29,6 +31,8 @@ export const commandsMatcher = async (input) => {
     [commands.RM]: () => deleteFile(args[0]),
     [commands.OS]: () => getOSInfo(args[0]),
     [commands.HASH]: () => calculateFileHash(args[0]),
+    [commands.COMPRESS]: () => compressFile(args[0], args[1]),
+    [commands.DECOMPRESS]: () => decompressFile(args[0], args[1]),
     [commands.EXIT]: () => exitFileManager(),
     [commands.SIGINT]: () => exitFileManager(),
   }

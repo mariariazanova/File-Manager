@@ -1,5 +1,5 @@
 import { readdir } from 'fs/promises';
-import { getCurrentDirectory, showCurrentDirectory } from '../utils/index.js';
+import { getCurrentDirectory } from '../utils/index.js';
 
 export const getFolderContent = async () => {
   return new Promise(async(resolve, reject) => {
