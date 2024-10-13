@@ -4,6 +4,7 @@ export const commands = {
   CD: 'cd',
   CP: 'cp',
   EXIT: '.exit',
+  HASH: 'hash',
   LS: 'ls',
   MV: 'mv',
   OS: 'os',

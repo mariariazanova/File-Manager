@@ -1,6 +1,5 @@
 import { unlink } from 'fs/promises';
-import { isFileExists } from '../utils/index.js';
-import { getFilePath } from '../utils/fs-utils.js';
+import { isFileExists, getFilePath } from '../utils/index.js';
 
 export const deleteFile = async (filePath) => {
   return new Promise(async (resolve, reject) => {

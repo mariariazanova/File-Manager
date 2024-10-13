@@ -1,5 +1,5 @@
 import { createReadStream } from 'fs';
-import { getFilePath } from '../utils/fs-utils.js';
+import { getFilePath } from '../utils/index.js';
 
 export const readFileContent = async (targetPath) => {
   const pathToFile = getFilePath(targetPath);

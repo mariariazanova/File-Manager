@@ -2,8 +2,7 @@ import { createReadStream, createWriteStream } from 'fs';
 import { unlink } from 'fs/promises';
 import { basename, join } from 'path';
 import { pipeline } from 'stream/promises';
-import { showCurrentDirectory, isFileExists } from '../utils/index.js';
-import { getFilePath } from '../utils/fs-utils.js';
+import { getFilePath, isFileExists } from '../utils/index.js';
 
 export const moveFile = async (filePath, newDirectoryPath) => {
   const fileName = basename(filePath);

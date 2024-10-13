@@ -1,9 +1,7 @@
 import { join, basename } from 'path';
 import { createReadStream, createWriteStream } from 'fs';
 import { pipeline } from 'stream/promises';
-import { isFileExists } from '../utils/index.js';
-import { getFilePath } from '../utils/fs-utils.js';
-
+import { isFileExists, getFilePath } from '../utils/index.js';
 
 export const copyFile = async (filePath, newDirectoryPath) => {
   const fileName = basename(filePath);

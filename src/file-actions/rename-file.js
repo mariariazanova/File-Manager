@@ -1,7 +1,6 @@
 import { rename } from 'fs/promises';
 import { join,dirname, extname } from 'path';
-import { isFileExists } from '../utils/index.js';
-import { getFilePath } from "../utils/fs-utils.js";
+import { isFileExists, getFilePath } from '../utils/index.js';
 
 export const renameFile = (filePath, newFileName) => {
   return new Promise(async(resolve, reject) => {
