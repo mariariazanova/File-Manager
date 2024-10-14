@@ -4,7 +4,7 @@ import { setCurrentDirectory, getCurrentDirectory } from '../utils/index.js';
 export const goUp = () => {
   return new Promise((resolve, reject) => {
     try {
-      let currentDir = getCurrentDirectory();
+      const currentDir = getCurrentDirectory();
       const pathArr = currentDir.split(sep);
 
       if (pathArr.length > 1) {

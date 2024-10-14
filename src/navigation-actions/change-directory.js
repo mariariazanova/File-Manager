@@ -1,16 +1,21 @@
 import path from 'path';
 import { access } from 'fs/promises';
 import { getCurrentDirectory, setCurrentDirectory } from '../utils/index.js';
+import { defaultInputErrorMessage } from '../constants/messages.js';
 
 export const changeDirectory = async (targetPath) => {
   return new Promise(async (resolve, reject) => {
     const pathToDirectory = targetPath ? getPath(targetPath) : undefined;
 
     try {
-      await access(pathToDirectory);
+      if (!targetPath) {
+        console.log(defaultInputErrorMessage);
+      } else {
+        await access(pathToDirectory);
 
-      setCurrentDirectory(pathToDirectory);
-      resolve();
+        setCurrentDirectory(pathToDirectory);
+        resolve();
+      }
     } catch {
       reject();
     }
@@ -25,7 +30,6 @@ const getPath = (targetPath) => {
   if (path.isAbsolute(targetPath) || driveLetterPathRegExp.test(targetPath)) {
     // If the path is just a drive letter like "D:", use it as the root of the drive
     if (driveLetterPathRegExp.test(targetPath)) {
-      console.log(path.sep);
       return path.resolve(targetPath + path.sep); // Append a separator to make it absolute
     } else {
       return path.resolve(targetPath);

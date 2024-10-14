@@ -14,9 +14,9 @@ export const readFileContent = async (targetPath) => {
 
     readableStream.on('end', () => {
       if (content.length === 0) {
-        console.log('The file is empty');
+        console.log('File is empty.');
       } else {
-        console.log('File content:', content);
+        console.log('Content:', content);
       }
       resolve();
     });

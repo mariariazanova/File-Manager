@@ -13,7 +13,7 @@ export const addNewFile = (fileName) => {
       if (!fileExists) {
         await writeFile(filePath, '');
 
-        console.log(`File ${fileName} has been created`);
+        console.log(`File ${ fileName } has been created`);
         resolve();
       } else {
         reject();

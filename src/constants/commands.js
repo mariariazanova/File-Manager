@@ -17,9 +17,9 @@ export const commands = {
 };
 
 export const osCommands = {
-  EOL: 'EOL',
+  ARCHITECTURE: 'architecture',
   CPUS: 'cpus',
+  EOL: 'EOL',
   HOMEDIR: 'homedir',
   USERNAME: 'username',
-  ARCHITECTURE: 'architecture',
 };

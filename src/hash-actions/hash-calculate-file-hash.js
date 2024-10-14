@@ -1,6 +1,6 @@
 import { createReadStream } from 'fs';
 import { createHash } from 'crypto';
-import { isFileExists, showCurrentDirectory, getFilePath } from '../utils/index.js';
+import { isFileExists, getFilePath } from '../utils/index.js';
 
 export const calculateFileHash = (filePath) => {
   const absoluteFilePath = getFilePath(filePath);

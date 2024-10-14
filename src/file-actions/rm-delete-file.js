@@ -5,7 +5,6 @@ export const deleteFile = async (filePath) => {
   return new Promise(async (resolve, reject) => {
     try {
       const absoluteFilePath = getFilePath(filePath);
-
       const fileExists = await isFileExists(absoluteFilePath);
 
       if (fileExists) {

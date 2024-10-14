@@ -1,5 +1,6 @@
 import { osCommandsMatcher } from './get-os-info-utils.js';
 import { argumentPrefix } from '../utils/index.js';
+import {defaultInputErrorMessage} from "../constants/messages.js";
 
 
 export const getOSInfo = (info) => {
@@ -8,10 +9,15 @@ export const getOSInfo = (info) => {
       if (info.startsWith(argumentPrefix)) {
         const requiredInfo = info.trim().replace(argumentPrefix, '');
 
-        await osCommandsMatcher(requiredInfo);
+        const result = await osCommandsMatcher(requiredInfo);
+
+        if (result === false) {
+          return;
+        }
+
         resolve();
       } else {
-        reject()
+        console.log(defaultInputErrorMessage);
       }
     } catch {
       reject();

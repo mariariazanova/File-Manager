@@ -12,9 +12,7 @@ export const copyFile = async (filePath, newDirectoryPath) => {
     let targetPath;
 
     sourcePath = getFilePath(filePath);
-        // isAbsolute(filePath) ? filePath : join(currentDirectory, filePath);
     newFileDirectoryPath = getFilePath(newDirectoryPath);
-        // isAbsolute(newDirectoryPath) ? newDirectoryPath : join(currentDirectory, newDirectoryPath);
     targetPath = join(newFileDirectoryPath, fileName);
 
     try {

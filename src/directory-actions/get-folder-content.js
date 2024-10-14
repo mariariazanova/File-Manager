@@ -8,7 +8,7 @@ export const getFolderContent = async () => {
 
       const folderContent = await readdir(currentDirectory, { withFileTypes: true });
 
-      const folders = folderContent.filter(file => file.isDirectory()).map(file => file.name).sort();
+      const folders = folderContent.filter(file => file.isDirectory()).map(folder => folder.name).sort();
       const fileNames = folderContent.filter(file => file.isFile()).map(file => file.name).sort();
 
       folders.forEach(folder => console.log(`[DIR] ${ folder }`));
@@ -19,7 +19,6 @@ export const getFolderContent = async () => {
       }
 
       resolve();
-
     } catch {
       reject();
     }

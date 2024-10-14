@@ -51,5 +51,6 @@ export const osCommandsMatcher = async (command) => {
     await commandsSet[command]();
   } else {
     console.log(defaultInputErrorMessage);
+    return false;
   }
 }

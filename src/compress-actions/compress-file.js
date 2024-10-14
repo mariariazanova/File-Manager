@@ -7,13 +7,9 @@ export const compressFile = (filePath, newDirectoryPath) => {
   const fileName = basename(filePath);
 
   return new Promise(async (resolve, reject) => {
-    let sourcePath;
-    let newFileDirectoryPath;
-    let targetPath;
-
-    sourcePath = getFilePath(filePath);
-    newFileDirectoryPath = getFilePath(newDirectoryPath);
-    targetPath = join(newFileDirectoryPath, `${ fileName }.br`);
+    const sourcePath = getFilePath(filePath);
+    const newFileDirectoryPath = getFilePath(newDirectoryPath);
+    const targetPath = join(newFileDirectoryPath, `${ fileName }.br`);
 
     try {
       const fileExists = await isFileExists(sourcePath);
