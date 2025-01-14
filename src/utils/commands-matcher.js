@@ -21,26 +21,34 @@ export const commandsMatcher = async (input) => {
 
   const commandsSet = {
     [commands.UP]: () => goUp(),
-    [commands.CD]: () => changeDirectory(args[0]),
+    [commands.CD]: (dir) => changeDirectory(dir),
     [commands.LS]: () => getFolderContent(),
-    [commands.CAT]: () => readFileContent(args[0]),
-    [commands.ADD]: () => addNewFile(args[0]),
-    [commands.RN]: () => renameFile(args[0], args[1]),
-    [commands.CP]: () => copyFile(args[0], args[1]),
-    [commands.MV]: () => moveFile(args[0], args[1]),
-    [commands.RM]: () => deleteFile(args[0]),
-    [commands.OS]: () => getOSInfo(args[0]),
-    [commands.HASH]: () => calculateFileHash(args[0]),
-    [commands.COMPRESS]: () => compressFile(args[0], args[1]),
-    [commands.DECOMPRESS]: () => decompressFile(args[0], args[1]),
+    [commands.CAT]: (filePath) => readFileContent(filePath),
+    [commands.ADD]: (fileName) => addNewFile(fileName),
+    [commands.RN]: (oldName, newName) => renameFile(oldName, newName),
+    [commands.CP]: (src, dest) => copyFile(src, dest),
+    [commands.MV]: (src, dest) => moveFile(src, dest),
+    [commands.RM]: (filePath) => deleteFile(filePath),
+    [commands.OS]: (infoType) => getOSInfo(infoType),
+    [commands.HASH]: (filePath) => calculateFileHash(filePath),
+    [commands.COMPRESS]: (src, dest) => compressFile(src, dest),
+    [commands.DECOMPRESS]: (src, dest) => decompressFile(src, dest),
     [commands.EXIT]: () => exitFileManager(),
     [commands.SIGINT]: () => exitFileManager(),
-  }
+  };
 
-  if (commandsSet[command]) {
-    await commandsSet[command]();
+  const commandFn = commandsSet[command];
 
-    showCurrentDirectory();
+  if (commandFn) {
+    const expectedArgs = commandFn.length;
+
+    if (args.length < expectedArgs) {
+      console.log(defaultInputErrorMessage);
+    } else {
+      await commandFn(...args);
+
+      showCurrentDirectory();
+    }
   } else {
     console.log(defaultInputErrorMessage);
   }

@@ -1,21 +1,16 @@
 import path from 'path';
 import { access } from 'fs/promises';
 import { getCurrentDirectory, setCurrentDirectory } from '../utils/index.js';
-import { defaultInputErrorMessage } from '../constants/messages.js';
 
 export const changeDirectory = async (targetPath) => {
   return new Promise(async (resolve, reject) => {
-    const pathToDirectory = targetPath ? getPath(targetPath) : undefined;
+    const pathToDirectory = getPath(targetPath);
 
     try {
-      if (!targetPath) {
-        console.log(defaultInputErrorMessage);
-      } else {
-        await access(pathToDirectory);
+      await access(pathToDirectory);
 
-        setCurrentDirectory(pathToDirectory);
-        resolve();
-      }
+      setCurrentDirectory(pathToDirectory);
+      resolve();
     } catch {
       reject();
     }
