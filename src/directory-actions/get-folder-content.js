@@ -8,13 +8,25 @@ export const getFolderContent = async () => {
 
       const folderContent = await readdir(currentDirectory, { withFileTypes: true });
 
-      const folders = folderContent.filter(file => file.isDirectory()).map(folder => folder.name).sort();
-      const fileNames = folderContent.filter(file => file.isFile()).map(file => file.name).sort();
+      const folders = [];
+      const files = [];
+
+      folderContent.forEach(file => {
+        if (file.isDirectory()) {
+          folders.push(file.name);
+        }
+        else if (file.isFile()) {
+          files.push(file.name);
+        }
+      });
+
+      folders.sort();
+      files.sort();
 
       folders.forEach(folder => console.log(`[DIR] ${ folder }`));
-      fileNames.forEach(file => console.log(`[FILE] ${ file }`));
+      files.forEach(file => console.log(`[FILE] ${ file }`));
 
-      if (!folders.length && !fileNames.length) {
+      if (!folders.length && !files.length) {
         console.log('Directory is empty');
       }
 

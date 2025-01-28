@@ -1,6 +1,6 @@
 import { baseEndMessage } from '../constants/messages.js';
 import { getMessage } from './get-message.js';
-import { displayedUsername } from '../index.js';
+import { displayedUsername } from '../app.js';
 
 export const exitFileManager = () => {
   const endMessage = getMessage(displayedUsername, baseEndMessage, ', goodbye!');
