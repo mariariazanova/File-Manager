@@ -1,19 +1,27 @@
 {
-  "name": "file-manager",
-  "version": "1.0.0",
+  "name": "my-file-manager",
+  "version": "2.0.0",
   "description": "File Manager implementation using Node.js APIs",
   "engines": {
     "node": ">=22.9.0"
   },
   "type": "module",
   "scripts": {
+    "build": "webpack --mode production",
     "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariariazanova/File-Manager.git"
   },
+  "bin": {
+    "file-manager": "./dist/bundle.js"
+  },
   "keywords": [],
   "author": "mariariazanova",
-  "homepage": "https://github.com//mariariazanova/File-Manager#readme"
+  "homepage": "https://github.com//mariariazanova/File-Manager#readme",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
 }
